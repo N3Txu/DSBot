@@ -3,6 +3,7 @@ from discord.ext import commands
 import requests
 from dotenv import load_dotenv
 import os
+import BotServer
 
 load_dotenv()
 
@@ -41,7 +42,10 @@ async def poke_error(ctx, error):
 async def clear(ctx):
     if ctx.author.guild_permissions.manage_messages:
         await ctx.channel.purge(limit=100)
-        await ctx.send('Chat cleared!', delete_after=5)
+        await ctx.send('Chat cleared!', delete_after=2)
     else:
         await ctx.send('You do not have permission to clear the chat.')
+        
+BotServer.keep_alive()
+print("Starting BotServer...")
 bot.run(TOKEN)

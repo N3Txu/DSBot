@@ -1,4 +1,5 @@
 .env
 .vscode/
 venv/
-.gitnore/
+python_cache/
+__pycache__/
